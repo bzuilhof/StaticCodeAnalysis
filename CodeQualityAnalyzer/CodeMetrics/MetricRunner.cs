@@ -88,6 +88,8 @@ namespace CodeQualityAnalyzer.CodeMetrics
             classMetricResults.AddMetric(Measure.LambdaCount, lambdaMetrics.LambdaCount);
             classMetricResults.AddMetric(Measure.LambdaFieldVariableUsageCount, lambdaMetrics.FieldVariableUsageCount);
             classMetricResults.AddMetric(Measure.LambdaLocalVariableUsageCount, lambdaMetrics.LocalVariableUsageCount);
+            classMetricResults.AddMetric(Measure.LambdaSideEffectCount, lambdaMetrics.SideEffects);
+            
 
             int sourceLinesOfCode = SourceLinesOfCode.GetCount(classDecl);
             classMetricResults.AddMetric(Measure.SourceLinesOfCode, sourceLinesOfCode);
@@ -120,7 +122,7 @@ namespace CodeQualityAnalyzer.CodeMetrics
             int sourceLinesOfLambda = SourceLinesOfLambda.GetCount(classDecl);
             classMetricResults.AddMetric(Measure.SourceLinesOfLambda, sourceLinesOfLambda);
 
-            int lambdaScore = (int)((double)sourceLinesOfLambda / (sourceLinesOfCode + sourceLinesOfLambda) * 100);
+            int lambdaScore = (int)((double)sourceLinesOfLambda / sourceLinesOfCode * 100);
             classMetricResults.AddMetric(Measure.LambdaScore, lambdaScore);
 
             int unterminatedCollections = UnterminatedCollections.GetCount(classDecl, semanticModel);
@@ -215,6 +217,8 @@ namespace CodeQualityAnalyzer.CodeMetrics
         LambdaScore,
         LambdaFieldVariableUsageCount,
         LambdaLocalVariableUsageCount,
+        LambdaSideEffectCount,
+
         UnterminatedCollections,
     }
 }

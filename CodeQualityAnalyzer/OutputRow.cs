@@ -28,8 +28,9 @@ namespace CodeQualityAnalyzer
         public int LambdaLocalVariableUsageCount { get; set; }
         public int LambdaLocalVariableUsed { get; set; }
         public int UnterminatedCollections { get; set; }
+        public int LambdaSideEffectCount { get; set; }
 
-        public OutputRow(string className, Dictionary<Measure, int> metricResults)
+        public OutputRow(string className, IReadOnlyDictionary<Measure, int> metricResults)
         {
             ClassName = className;
 
@@ -46,12 +47,13 @@ namespace CodeQualityAnalyzer
 
             SourceLinesOfLambda = metricResults[Measure.SourceLinesOfLambda];
             LambdaScore = metricResults[Measure.LambdaScore];
-            LambdaUsed = metricResults[Measure.LambdaCount].LimitToOne();
+//            LambdaUsed = metricResults[Measure.LambdaCount].LimitToOne();
             LambdaCount = metricResults[Measure.LambdaCount]; 
-            LambdaFieldVariableUsed = metricResults[Measure.LambdaFieldVariableUsageCount].LimitToOne(); 
+//            LambdaFieldVariableUsed = metricResults[Measure.LambdaFieldVariableUsageCount].LimitToOne(); 
             LambdaFieldVariableUsageCount = metricResults[Measure.LambdaFieldVariableUsageCount];
-            LambdaLocalVariableUsed = metricResults[Measure.LambdaLocalVariableUsageCount].LimitToOne(); 
+//            LambdaLocalVariableUsed = metricResults[Measure.LambdaLocalVariableUsageCount].LimitToOne(); 
             LambdaLocalVariableUsageCount = metricResults[Measure.LambdaLocalVariableUsageCount];
+            LambdaSideEffectCount = metricResults[Measure.LambdaSideEffectCount];
             UnterminatedCollections = metricResults[Measure.UnterminatedCollections]; 
         }
 

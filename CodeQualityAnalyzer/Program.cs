@@ -41,7 +41,7 @@ namespace CodeQualityAnalyzer
             }
             else
             {
-                issueTrackerService = new GithubService(targetProject);
+                issueTrackerService = new GithubService(targetProject); 
 
             }
 
@@ -49,7 +49,7 @@ namespace CodeQualityAnalyzer
 
             _repository = targetProject.RepositoryName;
             _shellService = new ShellService($@"{RepositoriesFolder}/{_repository}");
-            _shellService.CheckoutCommit();
+//            _shellService.CheckoutCommit();
             var hash = _shellService.GetHeadHash();
             RepositoryWithMetrics repositoryWithMetrics = new RepositoryWithMetrics();
             MetricRunner runner = new MetricRunner(solutionFile);
@@ -62,7 +62,7 @@ namespace CodeQualityAnalyzer
 
             List<OutputRow> output = GetOutput(solutionVersionWithMetrics.ClassesWithMetrics, bugAmountInClasses);
 
-            OutputCsv(output, $@"C:\Users\BartZ\code-analysis-results\{targetProject.OrganizationName}_{_repository}_{hash}.csv");
+            OutputCsv(output, $@"C:\Users\BartZ\code-analysis-results\{targetProject.OrganizationName}_{_repository}_{hash}_complete.csv");
            
             Console.ReadKey();
         }
