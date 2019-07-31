@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -16,6 +17,7 @@ namespace CodeQualityAnalyzer.CodeMetrics
                 .Select(x => semanticModel.GetSymbolInfo(x))
                 .Count(x => x.Symbol?.Name == "IEnumerable")
             ;
+            IEnumerable bla = Enumerable.to;
         }
     }
 }
