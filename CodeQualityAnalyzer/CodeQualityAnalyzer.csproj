@@ -24,7 +24,7 @@
     <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces" Version="2.9.0-beta4-63006-05" />
     <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="2.9.0-beta4-63006-05" />
     <PackageReference Include="Microsoft.TeamFoundationServer.Client" Version="15.131.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="RestSharp" Version="106.6.9" />
   </ItemGroup>
 
